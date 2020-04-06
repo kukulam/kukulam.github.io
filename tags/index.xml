@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on dev space</title>
-    <link>https://kukulam.github.io/tags/</link>
+    <link>https://kukulam.dev/tags/</link>
     <description>Recent content in Tags on dev space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Hugo template by Takuma Misumi</copyright>
     <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://kukulam.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kukulam.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>blog</title>
-      <link>https://kukulam.github.io/tags/blog/</link>
+      <link>https://kukulam.dev/tags/blog/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://kukulam.github.io/tags/blog/</guid>
+      <guid>https://kukulam.dev/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>writing</title>
-      <link>https://kukulam.github.io/tags/writing/</link>
+      <link>https://kukulam.dev/tags/writing/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://kukulam.github.io/tags/writing/</guid>
+      <guid>https://kukulam.dev/tags/writing/</guid>
       <description></description>
     </item>
     
