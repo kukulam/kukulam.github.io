@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dev space</title>
-    <link>https://kukulam.dev/</link>
-    <description>Recent content on dev space</description>
+    <title>mongodb-commands on dev space</title>
+    <link>https://kukulam.dev/tags/mongodb-commands/</link>
+    <description>Recent content in mongodb-commands on dev space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Miłosz Kukuła</copyright>
-    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://kukulam.dev/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kukulam.dev/tags/mongodb-commands/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://kukulam.dev/posts/mongodb-commands-developers/</guid>
       <description>Usefull commands for developers using mongoDB in work.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://kukulam.dev/about/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://kukulam.dev/about/</guid>
-      <description>TODOs .</description>
     </item>
     
   </channel>
