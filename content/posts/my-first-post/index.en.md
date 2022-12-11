@@ -1,7 +1,7 @@
 ---
 title: "My first post"
 date: 2022-12-11T19:50:56+01:00
-draft: true
+draft: false
 tags: ["motivation"]
 categories: []
 images: []
