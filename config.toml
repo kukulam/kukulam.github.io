@@ -1,0 +1,77 @@
+baseURL = 'https://kukulam.dev'
+languageCode = 'en-us'
+title = 'Milosz Kukula dev blog'
+theme = 'loveit'
+
+[author]
+  name = "kukulam"
+  email = "kukula.milosz@gmail.com"
+  link = "https://kukulam.dev/about"
+
+[menu]
+  [[menu.main]]
+    weight = 1
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    title = ""
+  [[menu.main]]
+    weight = 2
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+  [[menu.main]]
+      weight = 2
+      identifier = "about"
+      pre = ""
+      post = ""
+      name = "About"
+      url = "/about"
+      title = ""
+
+[params.header]
+desktopMode = "fixed"
+mobileMode = "auto"
+[params.header.title]
+  logo = ""
+  name = "Miłosz Kukuła - dev blog"
+  pre = ""
+  post = ""
+  typeit = false
+
+[params.home.profile]
+  enable = true
+  gravatarEmail = "kukula.milosz@gmail.com"
+  avatarURL = "/images/avatar.png"
+  title = ""
+  subtitle = "clouds, databases, terraform, go"
+  typeit = true
+  social = true
+  disclaimer = ""
+
+[params.social]
+  GitHub = "kukulam"
+  Linkedin = "kukulam"
+  Email = "kukula.milosz@gmail.com"
+  RSS = false
+
+[params.page.share]
+  enable = true
+  Twitter = true
+  Facebook = false
+  Linkedin = true
+  HackerNews = false
+  Line = false
+  Weibo = false
+
+
+
+
+
+
+
