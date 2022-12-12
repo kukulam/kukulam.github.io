@@ -6,7 +6,7 @@ theme = 'loveit'
 [author]
   name = "kukulam"
   email = "kukula.milosz@gmail.com"
-  link = "https://kukulam.dev/about"
+  link = "/about"
 
 [menu]
   [[menu.main]]
