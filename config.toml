@@ -1,6 +1,6 @@
 baseURL = 'https://kukulam.github.io'
 languageCode = 'en-us'
-title = 'Milosz Kukula dev blog'
+title = 'Miłosz Kukuła dev blog'
 theme = 'loveit'
 
 [author]
@@ -68,6 +68,15 @@ mobileMode = "auto"
   HackerNews = false
   Line = false
   Weibo = false
+
+
+[params]
+  defaultTheme = "auto"
+  title = "Miłosz Kukuła dev blog"
+  description = "Blog for programmers, devOps and secOps engineers"
+
+  [params.app]
+    title = "Miłosz Kukuła dev blog"
 
 
 
