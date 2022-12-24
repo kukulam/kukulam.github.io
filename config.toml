@@ -33,6 +33,15 @@ theme = 'loveit'
       name = "About"
       url = "/about"
       title = ""
+  [[menu.main]]
+    weight = 3
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+
 
 [params.header]
 desktopMode = "fixed"
@@ -78,7 +87,13 @@ mobileMode = "auto"
   [params.app]
     title = "Miłosz Kukuła dev blog"
 
+[params.page.code]
+  copy = true
+  maxShownLines = 100
 
+[markup]
+  [markup.highlight]
+    noClasses = false
 
 
 
