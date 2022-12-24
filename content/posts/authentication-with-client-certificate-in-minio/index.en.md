@@ -139,7 +139,7 @@ curl -X POST \
 ```
 {{< /admonition >}}
 
-### 3. Use `amazon/aws-cli` to authenticate with credentials
+### 3. Use `amazon/aws-cli` to authenticate
 ```bash
 aws configure set default.s3.signature_version s3v4
 aws configure set aws_access_key_id TBS5LE45EEUOT9NXYNU6
