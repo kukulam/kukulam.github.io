@@ -53,6 +53,12 @@ mobileMode = "auto"
   post = ""
   typeit = false
 
+[params.page.seo]
+  images = []
+  [params.page.seo.publisher]
+    name = "Miłosz Kukuła"
+    logoUrl = "/images/avatar.png"
+
 [params.home.profile]
   enable = true
   gravatarEmail = "kukula.milosz@gmail.com"
