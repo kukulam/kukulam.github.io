@@ -15,12 +15,12 @@ lightgallery: true
 ---
 
 ## Motivation
-Welcome, this is my first post on this blog. Main goal of this website is to store materials which could be useful for programmers, devOps and secOps engineers.
+Welcome! This is my first post on this blog. The main goal of this website is to store materials that could be useful for programmers, DevOps, and SecOps engineers.
 
 ## Technology
-My daily work is about setting up things (especially databases) using kubernetes and terraform so future posts will be related with those technologies.
+In my daily work, I focus on setting up infrastructure (especially databases) using Kubernetes and Terraform. Therefore, my future posts will be related to these technologies.
 
 ## Warnings
-My english is far away from being perfect, but posts should be good enough to be understandable.
+While my English is far from perfect, I will strive to make my posts as clear and comprehensible as possible.
 
 
