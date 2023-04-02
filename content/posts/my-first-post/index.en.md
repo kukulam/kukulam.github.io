@@ -23,4 +23,7 @@ In my daily work, I focus on setting up infrastructure (especially databases) us
 ## Warnings
 While my English is far from perfect, I will strive to make my posts as clear and comprehensible as possible.
 
+## References
+Photo by [Nick Morrison](https://unsplash.com/@nickmorrison) on [Unsplash](https://unsplash.com)
+
 
