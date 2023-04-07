@@ -22,13 +22,17 @@ Currently, as a platform engineer, I am drawn to the challenges of distributed s
 ## For recruiters
 I am interested in a remote role as a backend platform engineer specializing in distributed systems. __Kindly consider my interest in this regard__.
 
-### My technology interest:
+### My technology interests:
 - {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/kubernetes.svg) {{< /style >}} Kubernetes
 - {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/clouds.png) {{< /style >}} AWS or GCP
 - {{< style "vertical-align:middle; display: inline-block;" >}}![db](/icons/database.png) {{< /style >}} Databases or message brokers
 - {{< style "vertical-align:middle; display: inline-block;" >}}![lang](/icons/golang.svg) {{< /style >}} Golang or {{< style "vertical-align:middle; display: inline-block;" >}}![lang2](/icons/java.svg) {{< /style >}} JVM based languages like Java or Kotlin
 
 I am not considering job offers about: big data or frontend. 
+
+### Curriculum vitae
+
+[cv.pdf](https://drive.google.com/file/d/11D0qbSJpGUzCl8RXBxlEIFwKIBovETZy/view)
 
 ## Certificates
 
