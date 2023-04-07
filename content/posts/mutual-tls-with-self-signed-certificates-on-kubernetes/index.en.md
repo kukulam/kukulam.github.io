@@ -389,6 +389,9 @@ tls.crt:  1159 bytes
 tls.key:  1675 bytes
 ```
 
+## Github project
+All files which I used to generate certificate are stored in [github repository](https://github.com/kukulam/blog-code-materials/tree/main/mutual-tls-with-self-signed-certificates-on-kubernetes).
+
 ## References
 - [How to generate self signed certificate](https://cert-manager.io/docs/configuration/selfsigned/)
 - [How to generate CA](https://cert-manager.io/docs/configuration/ca/)
