@@ -10,7 +10,7 @@ resources:
   src: "logo.png"
 
 featuredImage: "logo"
-lightgallery: true
+
 ---
 
 ## Mutual TLS with self-signed certificates on kubernetes

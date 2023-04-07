@@ -26,13 +26,13 @@ theme = 'loveit'
     url = "/tags/"
     title = ""
   [[menu.main]]
-      weight = 2
-      identifier = "about"
-      pre = ""
-      post = ""
-      name = "About"
-      url = "/about"
-      title = ""
+    weight = 2
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about"
+    title = ""
   [[menu.main]]
     weight = 3
     identifier = "categories"
@@ -42,10 +42,9 @@ theme = 'loveit'
     url = "/categories/"
     title = ""
 
-
 [params.header]
-desktopMode = "fixed"
-mobileMode = "auto"
+  desktopMode = "fixed"
+  mobileMode = "auto"
 [params.header.title]
   logo = ""
   name = "Miłosz Kukuła - dev blog"

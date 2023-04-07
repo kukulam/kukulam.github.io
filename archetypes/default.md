@@ -10,6 +10,6 @@ resources:
   src: "logo.png"
 
 featuredImage: "logo"
-lightgallery: true
+
 ---
 
