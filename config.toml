@@ -64,7 +64,7 @@ mobileMode = "auto"
   gravatarEmail = "kukula.milosz@gmail.com"
   avatarURL = "/images/avatar.png"
   title = ""
-  subtitle = "clouds, databases, terraform, go"
+  subtitle = "clouds, databases, kubernetes, terraform, go"
   typeit = true
   social = true
   disclaimer = ""
@@ -95,7 +95,7 @@ mobileMode = "auto"
 
 [params.page.code]
   copy = true
-  maxShownLines = 100
+  maxShownLines = 50
 
 [markup]
   [markup.highlight]

@@ -2,7 +2,7 @@
 title: "Authentication with certificate in Minio"
 date: 2022-12-24T22:52:18+01:00
 draft: false
-tags: ["k8s", "minio", "db", "tls", "security"]
+tags: ["k8s", "kubernetes", "minio", "db", "tls", "security"]
 categories: ["db", "security"]
 
 resources:
