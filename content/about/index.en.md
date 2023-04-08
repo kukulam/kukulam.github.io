@@ -26,8 +26,8 @@ I am available to offer my expertise in resolving any issues related to Kubernet
 I am interested in a remote role as a backend platform engineer specializing in distributed systems. __Kindly consider my interest in this regard__.
 
 ### My technology interests:
-- {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/kubernetes.svg) {{< /style >}} Kubernetes
-- {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/clouds.png) {{< /style >}} AWS or GCP
+- {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/kubernetes.svg) {{< /style >}}  Kubernetes
+- {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/clouds.png) {{< /style >}}  AWS or GCP
 - {{< style "vertical-align:middle; display: inline-block;" >}}![lang](/icons/golang.svg) {{< /style >}} Golang or {{< style "vertical-align:middle; display: inline-block;" >}}![lang2](/icons/java.svg) {{< /style >}} JVM based languages like Java or Kotlin
 - {{< style "vertical-align:middle; display: inline-block;" >}}![db](/icons/database.png) {{< /style >}} Databases or message brokers
 
