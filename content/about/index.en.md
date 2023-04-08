@@ -19,14 +19,17 @@ As an experienced developer, I specialize in distributed systems, particularly d
 #### Present time
 Currently, as a platform engineer, I am drawn to the challenges of distributed systems. My expertise includes ensuring data consistency, maintaining high availability and implementing disaster recovery measures. I am fully committed to specializing in this field and excited to continue pushing its boundaries.
 
+## Need help ?
+I am available to offer my expertise in resolving any issues related to Kubernetes and databases, or other technologies featured in my posts. Should you require consultation or assistance with your project, please do not hesitate to contact me. If you are interested in training, see [Trainings](/trainings) tab.
+
 ## For recruiters
 I am interested in a remote role as a backend platform engineer specializing in distributed systems. __Kindly consider my interest in this regard__.
 
 ### My technology interests:
 - {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/kubernetes.svg) {{< /style >}} Kubernetes
 - {{< style "vertical-align:middle; display: inline-block;" >}}![k8s](/icons/clouds.png) {{< /style >}} AWS or GCP
-- {{< style "vertical-align:middle; display: inline-block;" >}}![db](/icons/database.png) {{< /style >}} Databases or message brokers
 - {{< style "vertical-align:middle; display: inline-block;" >}}![lang](/icons/golang.svg) {{< /style >}} Golang or {{< style "vertical-align:middle; display: inline-block;" >}}![lang2](/icons/java.svg) {{< /style >}} JVM based languages like Java or Kotlin
+- {{< style "vertical-align:middle; display: inline-block;" >}}![db](/icons/database.png) {{< /style >}} Databases or message brokers
 
 I am not considering job offers about: big data or frontend. 
 
