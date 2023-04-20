@@ -51,7 +51,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "kukulam.dev"
+            --baseURL "https://kukulam.dev"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
