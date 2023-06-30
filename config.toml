@@ -33,14 +33,14 @@ theme = 'loveit'
     name = "Trainings"
     url = "/trainings"
     title = "Trainings"
-  [[menu.main]]
-    weight = 4
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
-    title = "Categories"
+#   [[menu.main]]
+#     weight = 4
+#     identifier = "categories"
+#     pre = ""
+#     post = ""
+#     name = "Categories"
+#     url = "/categories/"
+#     title = "Categories"
   [[menu.main]]
     weight = 5
     identifier = "tags"
@@ -107,7 +107,9 @@ theme = 'loveit'
 [markup]
   [markup.highlight]
     noClasses = false
-
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 6
 
 
 

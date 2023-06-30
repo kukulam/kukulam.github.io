@@ -2,7 +2,7 @@
 title: "Authentication with certificate in Minio"
 date: 2022-12-24T22:52:18+01:00
 draft: false
-tags: ["k8s", "kubernetes", "minio", "db", "tls", "security"]
+tags: ["kubernetes", "db", "security"]
 categories: ["db", "security"]
 
 resources:
@@ -11,32 +11,29 @@ resources:
 
 featuredImage: "logo"
 
-toc:
-  auto: false
-
 ---
-## Authenticate with certificate in Minio using cert manager
-### 0. Create bucket with files using `minio/mc`.
+
+# 0. Create bucket with files using `minio/mc`.
 {{< admonition tip >}}
 This step is optional. It can be skipped if you have already created buckets which can be used for testing.
 {{< /admonition >}}
-#### auth 
+## auth 
 ```bash
 mc config host add minio-0 https://minio-0.minio.minio.svc.cluster.local:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
 ```
-#### copy file into the bucket
+## copy file into the bucket
 ```bash
 mc mb --with-lock minio-0/bucket1
 touch test.txt
 echo "test" > test.txt
 mc cp ./test.txt minio-0/bucket1
 ```
-#### list files in the bucket
+## list files in the bucket
 ```bash
 mc ls minio-0/bucket1
 ```
 
-### 1. Generate certificate with proper `commonName` variable. 
+# 1. Generate certificate with proper `commonName` variable. 
 Common name variable should be the same as one of the policies in Minio.
 
 {{< admonition note >}}
@@ -109,7 +106,7 @@ spec:
     group: cert-manager.io
 ```
 
-### 2. Generate temporary credentials
+# 2. Generate temporary credentials
 ```bash
 curl -X POST \
   --key /tmp/minio/readonly-certs/private.key \
@@ -138,7 +135,7 @@ curl -X POST \
 ```
 {{< /admonition >}}
 
-### 3. Use `amazon/aws-cli` to authenticate
+# 3. Use `amazon/aws-cli` to authenticate
 ```bash
 aws configure set default.s3.signature_version s3v4
 aws configure set aws_access_key_id TBS5LE45EEUOT9NXYNU6
@@ -151,13 +148,12 @@ cat /tmp/minio/readonly-certs/public.crt >> certs.pem
 cat /tmp/minio/certs/ca.crt >> certs.pem 
 ```
 
-### 4. Verify permissions
+# 4. Verify permissions
 {{< admonition note >}}
 `readonly` policies can only fetch object from all buckets, but it cannot modify any objects.
 {{< /admonition >}}
 
-
-#### verify that it's possible to fetch object from a bucket
+## verify that it's possible to fetch object from a bucket
 ```bash
 aws --ca-bundle ./certs.pem --endpoint-url https://minio-0.minio.minio.svc.cluster.local:9000 s3 cp s3://bucket1/test.txt ./test2.txt
 cat ./test2.txt
@@ -172,7 +168,7 @@ test
 ```
 {{< /admonition >}}
 
-#### verify that it's not possible to upload object to the bucket
+## verify that it's not possible to upload object to the bucket
 ```bash
 touch test3.txt
 echo "test" > test3.txt
@@ -188,15 +184,15 @@ upload failed: ./test3.txt to s3://bucket1/test3.txt An error occurred (AccessDe
 ```
 {{< /admonition >}}
 
-## Important note
+# Important note
 {{< admonition warning >}}
 `minio/mc` does not support `AssumeRoleWithCertificate` mechanism by using `mc config host add`.
 {{< /admonition >}}
 
-## Github project
+# Github project
 All files which I used to test `AssumeRoleWithCertificate` mechanism are stored in [github repository](https://github.com/kukulam/blog-code-materials/tree/main/authentication-with-client-certificate-in-minio).
 
-## References
+# References
 - [Minio AssumeRoleWithCertificate docs](https://github.com/minio/minio/blob/master/docs/sts/tls.md)
 - [How to generate self signed certificate](https://cert-manager.io/docs/configuration/selfsigned/)
 - [How to generate CA](https://cert-manager.io/docs/configuration/ca/)
