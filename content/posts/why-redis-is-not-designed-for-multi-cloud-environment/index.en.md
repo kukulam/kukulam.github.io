@@ -99,16 +99,13 @@ When a client requests data, Redis uses consistent hashing to determine the node
 
 # Topology
 
-Let's imagine that we want to deploy Redis on 2 or 3 cloud providers to ensure that Redis will be working during cloud outage.
+Let's imagine that we want to deploy Redis cluster using 2 or 3 cloud providers to ensure that Redis will be working during cloud outage.
 When we are using multiple clouds we need to be worry about splitbrain between clouds. 
 Splitbrain is a sitation when one cloud lost connection to another cloud and both clouds lives indepemdent at the same time.
-
-
 
 {{< style "justify-content: center; display: flex;" >}}
 ![image](./redis-splitbrain.drawio.svg)
 {{< /style >}}
-
 
 ## Redis Sentinel
 
