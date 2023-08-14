@@ -98,22 +98,124 @@ When a client requests data, Redis uses consistent hashing to determine the node
 - comparing to Redis Sentinel, it has much fewer option for node selection during failover
 
 # Topology
+Before delving into specific Redis topologies, it's important to grasp the concepts of split brain and quorum consensus.
 
+## Split brain
 Let's imagine that we want to deploy Redis cluster using 2 or 3 cloud providers to ensure that Redis will be working during cloud outage.
-When we are using multiple clouds we need to be worry about splitbrain between clouds. 
-Splitbrain is a sitation when one cloud lost connection to another cloud and both clouds lives indepemdent at the same time.
+When we are using multiple clouds we need to be worried about split brain between clouds. 
+Split brain is a situation when one cloud can lose connection to another cloud and both clouds lives independent at the same time.
 
 {{< style "justify-content: center; display: flex;" >}}
 ![image](./redis-splitbrain.drawio.svg)
 {{< /style >}}
 
+## Quorum Consensus
+In a Redis distributed system, *quorum consensus* means the minimum number of nodes that must agree on a decision, like failover, to ensure data consistency and system reliability.
+
+| Number of nodes | Quorum | Allowed number of failing nodes |
+|:---------------:|:------:|:-------------------------------:|
+|        1        |   1    |                0                |
+|        2        |   2    |                0                |
+|        3        |   2    |                1                |
+|        4        |   3    |                1                |
+|        5        |   3    |                2                |
+|        6        |   4    |                2                |
+|        7        |   4    |                3                |
+|        8        |   5    |                3                |
+|        9        |   5    |                4                |
+|       10        |   6    |                4                |
+|       11        |   6    |                5                |
+|       12        |   7    |                5                |
+
 ## Redis Sentinel
 
+### Configuration 1
+- AWS: 3 nodes
+- GCP: 2 nodes
 
+{{< style "justify-content: center; display: flex;" >}}
+![image](./redis-sentinel-config-1.drawio.svg)
+{{< /style >}}
 
+#### Problems
+- during AWS outage, Redis on GCP becomes unhealthy
+- during network glitch, Redis on GCP becomes unhealthy
+- cost of network overhead
 
-# Conclusion 
+#### Conclusion
+Redis becomes unhealthy when cloud with more nodes has an outage.
 
+Resilient to cloud outage: ❌
+
+### Configuration 2
+- AWS: 3 nodes
+- GCP: 3 nodes
+
+{{< style "justify-content: center; display: flex;" >}}
+![image](./redis-sentinel-config-2.drawio.svg)
+{{< /style >}}
+
+#### Problems
+- during cloud outage Redis on both clouds becomes unhealthy
+- during network glitch, Redis on both clouds becomes unhealthy
+- cost of network overhead
+
+#### Conclusion
+Redis becomes unhealthy when one of the clouds has an outage or there is network issue between clouds.
+
+Resilient to cloud outage: ❌
+
+### Configuration 3
+- AWS: 2 nodes
+- GCP: 2 nodes
+- Azure: 2 nodes
+
+{{< style "justify-content: center; display: flex;" >}}
+![image](./redis-sentinel-config-3.drawio.svg)
+{{< /style >}}
+
+#### Problems
+- problematic parallel rolling update
+- cost of network overhead
+
+#### Conclusion
+Simultaneously implementing a rolling update across all clouds can lead to quorum loss. 
+The restart of a single instance on each cloud can disrupt quorum, rendering Redis inaccessible. 
+Moreover, utilizing a three-cloud setup proves costly due to network expenses spanning all three clouds.
+
+Resilient to cloud outage: ✅
+
+### Configuration 4
+- AWS: 3 nodes
+- GCP: 3 nodes
+- Azure: 3 nodes
+
+{{< style "justify-content: center; display: flex;" >}}
+![image](./redis-sentinel-config-4.drawio.svg)
+{{< /style >}}
+
+#### Problems
+- network overhead
+
+#### Conclusion
+In this configuration, Redis can endure the downtime of a single cloud provider or a split brain situation with one of the clouds. 
+However, the primary challenge lies in the substantial cost of this setup, as network expenses for all three clouds are incurred.
+
+Resilient to cloud outage: ✅
+
+## Redis cluster
+The Redis cluster lacks options for configuring node preferences in the event of fail over. 
+There is no mechanism to prioritize or designate node election during fail over situations. 
+Consequently, specifying configurations to ensure the cluster's survival during a cloud outage becomes significantly more challenging. 
+
+### Configuration 1
+- AWS: 2 masters (A, B), 1 replicas(C)
+- GCP: 1 master (C), 2 replica (A, B)
+- 3 shards: A, B, C
+
+#### Problems
+
+#### Conclusion
 
 
 # References
