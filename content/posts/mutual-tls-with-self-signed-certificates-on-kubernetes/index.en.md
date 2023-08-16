@@ -3,7 +3,6 @@ title: "Mutual TLS with self-signed certificates on kubernetes"
 date: 2023-04-03T19:09:19+02:00
 draft: false
 tags: ["kubernetes", "security"]
-categories: ["kubernetes", "security"]
 
 resources:
 - name: "logo"

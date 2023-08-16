@@ -3,7 +3,6 @@ title: "Authentication with certificate in Minio"
 date: 2022-12-24T22:52:18+01:00
 draft: false
 tags: ["kubernetes", "db", "security"]
-categories: ["db", "security"]
 
 resources:
 - name: "logo"

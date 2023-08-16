@@ -1,9 +1,8 @@
 ---
 title: "Why Redis is not designed for multi cloud environment"
-date: 2023-06-24T17:29:21+02:00
+date: 2023-08-14T17:29:21+02:00
 draft: false
-tags: ["db"]
-categories: ["db"]
+tags: ["db", "cloud"]
 
 resources:
 - name: "logo"
@@ -95,13 +94,13 @@ When a client requests data, Redis uses consistent hashing to determine the node
 ### Cons
 - configuration complexity
 - limited support for clients and plugins
-- comparing to Redis Sentinel, it has much fewer option for node selection during failover
+- comparing to Redis Sentinel, it has far fewer options for node selection during failover
 
 # Topology
 Before delving into specific Redis topologies, it's important to grasp the concepts of split brain and quorum consensus.
 
 ## Split brain
-Let's imagine that we want to deploy Redis cluster using 2 or 3 cloud providers to ensure that Redis will be working during cloud outage.
+Let's imagine that we want to deploy Redis cluster using two or three cloud providers to ensure that Redis will be working during cloud outage.
 When we are using multiple clouds we need to be worried about split brain between clouds. 
 Split brain is a situation when one cloud can lose connection to another cloud and both clouds lives independent at the same time.
 
@@ -123,11 +122,13 @@ In a Redis distributed system, *quorum consensus* means the minimum number of no
 |        7        |   4    |                3                |
 |        8        |   5    |                3                |
 |        9        |   5    |                4                |
-|       10        |   6    |                4                |
-|       11        |   6    |                5                |
-|       12        |   7    |                5                |
 
 ## Redis Sentinel
+Redis Sentinel, by and large, presents a rather straightforward approach. 
+It employs a single master for managing all operations, and in case of a failover, a new master is elected. 
+However, in a multi-cloud setup, the major hurdle lies in the substantial network overhead costs. 
+The need to pay for data transfers across cloud platforms becomes a notable concern. 
+Notably, all data is routed through the master before being disseminated to the various replicas, further contributing to this network expense.
 
 ### Configuration 1
 - AWS: 3 nodes
@@ -196,6 +197,7 @@ Resilient to cloud outage: ✅
 
 #### Problems
 - network overhead
+- a large amount of nodes
 
 #### Conclusion
 In this configuration, Redis can endure the downtime of a single cloud provider or a split brain situation with one of the clouds. 
@@ -204,22 +206,88 @@ However, the primary challenge lies in the substantial cost of this setup, as ne
 Resilient to cloud outage: ✅
 
 ## Redis cluster
-The Redis cluster lacks options for configuring node preferences in the event of fail over. 
-There is no mechanism to prioritize or designate node election during fail over situations. 
+The Redis cluster lacks options for configuring node preferences in the event of failover. 
+There is no mechanism to prioritize or designate node election during failover situations. 
 Consequently, specifying configurations to ensure the cluster's survival during a cloud outage becomes significantly more challenging. 
 
+The positive aspect is that due to sharding, the requirement for numerous replicas is minimized, leading to improved data transfer efficiency across clouds. 
+However, on the flip side, the absence of a mechanism to prioritize the future master during failover presents a significant predicament. 
+This issue will be further elucidated in the subsequent configurations.
+
+Redis Cluster diverges slightly from Redis Sentinel in its failover mechanism. 
+In the case of failover, it's noteworthy that **only the master nodes hold the privilege to participate in the voting process to elect a new master**.
+
 ### Configuration 1
-- AWS: 2 masters (A, B), 1 replicas(C)
-- GCP: 1 master (C), 2 replica (A, B)
+- AWS: 2 masters (A, B), 1 replica (C)
+- GCP: 1 master (C), 2 replicas (A, B)
 - 3 shards: A, B, C
 
+{{< style "justify-content: center; display: flex;" >}}
+![image](./redis-cluster-config-1.drawio.svg)
+{{< /style >}}
+
 #### Problems
+- during AWS outage, Redis on GCP becomes unhealthy due to not enough masters to vote
+- during network glitch, Redis on GCP becomes unhealthy due to not enough masters to vote
+- there's no guarantee against all masters being located on a single cloud
+- cost of network overhead
+
+#### Conclusion
+Redis becomes unhealthy when one of the clouds has an outage or there is network issue between clouds.
+
+Deploying Redis Cluster across just two clouds isn't adequate to ensure resilience against cloud outages. 
+While increasing the count of master nodes might be an option, the majority of these masters would still likely reside within a single cloud.
+
+The challenge arises from our inability to designate the locations of master nodes, leaving us unaware of which cloud holds the majority of masters. 
+Consequently, it becomes uncertain which cloud will remain functional in the event of an outage in the second cloud.
+
+Resilient to cloud outage: ❌
+
+### Configuration 2
+- AWS: 2 masters (A, B), 2 replicas (C, D)
+- GCP: 2 masters (C, D), 2 replicas (A, E)
+- Azure: 1 master (E), 1 replica (B)
+- 5 shards: A, B, C, D, E
+
+{{< style "justify-content: center; display: flex;" >}}
+![image](./redis-cluster-config-2.drawio.svg)
+{{< /style >}}
+
+#### Problems
+- there's no guarantee against majority of masters being located on a single cloud
+- cost of network overhead 
+- a large amount of nodes
 
 #### Conclusion
 
+The presence of the majority of masters on a single cloud lacks any assurance, leading to a scenario where if that particular cloud experiences an outage, the complete Redis cluster becomes non-operational.
+The potential to withstand a cloud outage exists, but this relies heavily on the balanced allocation of masters across all clouds.
+
+Surviving a cloud outage necessitates a proportional distribution of master nodes across clouds. However, the task is complicated by the lack of certainty about the master nodes' locations, making this approach an incomplete solution for cloud-related issues.
+
+Even in scenarios where a single cloud houses a majority of master nodes, addressing split brain situations remains an unresolved challenge.
+
+While using three clouds seems like an option to improve redundancy, the cost is substantial due to network overhead.
+
+Resilient to cloud outage: ❌
+
+# Summary
+
+Managing databases in a multi-cloud setup comes with a familiar hurdle: handling the costs tied to networking and the complexities of data replication across various nodes spanning diverse clouds. 
+This overhead, including both network expenses and data synchronization complexity, often presents a significant challenge in maintaining an efficient and budget-friendly setup.
+
+Redis Sentinel, a potential solution for multi-cloud setups, offers the prospect of reliable database operations. 
+However, it's essential to exercise caution while deploying it.
+The number of nodes and the network overhead must be thoughtfully considered to prevent unexpected costs and maintain optimal performance.
+
+However, Redis Cluster isn't as suitable for multi-cloud scenarios due to limitations in placing master nodes across clouds. 
+This lack of flexibility hampers its effectiveness. 
+Informed decisions between Redis Sentinel and Redis Cluster are vital for architecting a successful multi-cloud database strategy.
 
 # References
 - Redis architecture described in detail by [architecutrenotes](https://architecturenotes.co/redis)
+- Redis [docs](https://redis.io/docs/)
+- Quorum (distributed computing) in details by [wikipedia](https://en.wikipedia.org/wiki/Quorum_(distributed_computing))
 - Diagrams by [draw.io](https://draw.io)
 - Photo by [J Lee](https://unsplash.com/@babybluecat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash](https://unsplash.com/photos/YTV-GHH9VpQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")
   
