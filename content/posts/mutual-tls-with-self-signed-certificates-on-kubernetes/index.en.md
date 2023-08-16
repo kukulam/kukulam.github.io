@@ -2,8 +2,7 @@
 title: "Mutual TLS with self-signed certificates on kubernetes"
 date: 2023-04-03T19:09:19+02:00
 draft: false
-tags: ["k8s", "kubernetes", "mtls", "tls", "security"]
-categories: ["kubernetes", "security"]
+tags: ["kubernetes", "security"]
 
 resources:
 - name: "logo"
@@ -13,7 +12,7 @@ featuredImage: "logo"
 
 ---
 
-## Mutual TLS with self-signed certificates on kubernetes
+# Introduction
 
 During my daily work very often I need to set up mutual tls for given service
 or database. The problem appears during local development, because on local Kubernetes 
@@ -25,8 +24,8 @@ Self-signed certificates are very useful for local development and testing, but
 they shouldn't be used in production environment. In that case, you can use [Vault](https://www.vaultproject.io/).
 {{< /admonition >}}
 
-## 0. Prepare necessary configuration files
-### **certconfig.txt**
+# 0. Prepare necessary configuration files
+## **certconfig.txt**
 ```text
 [ req ]
 default_md = sha256
@@ -48,7 +47,7 @@ subjectAltName = @alt_names
 DNS.0 = localhost
 ```
 
-### **csrconfig.txt**
+## **csrconfig.txt**
 ```text
 [ req ]
 default_md = sha256
@@ -67,7 +66,7 @@ subjectAltName = @alt_names
 [ alt_names ]
 DNS.0 = localhost
 ```
-### **generate-cert.sh** 
+## **generate-cert.sh** 
 
 {{< admonition tip >}}
 If bash commands are too nerdy for you, there is website which could do the same job.
@@ -89,7 +88,7 @@ openssl req -x509 -nodes -in cert.csr -days 365 -key tls.key -config certconfig.
 rm cert.csr
 ```
 
-#### Result:
+### Result:
 ```bash
 » ./generate-cert.sh
 .+++
@@ -149,7 +148,7 @@ fGdZQsJxw8Ly+8ANLZG4lEU=
 -----END PRIVATE KEY-----
 ```
 
-## 1. Encode certificate with base64
+# 1. Encode certificate with base64
 {{< admonition note >}}
 To encode you can use the bash command `base64`
 ```bash
@@ -158,16 +157,16 @@ dGV4dAo=
 ```
 or you can use [base64encode](https://www.base64encode.org/) website.
 {{< /admonition >}}
-### Encode `tls.crt`
+## Encoded `tls.crt`
 ```text
 LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURjRENDQWxpZ0F3SUJBZ0lKQUoyOVVLeG1pV1lzTUEwR0NTcUdTSWIzRFFFQkN3VUFNQ2d4RURBT0JnTlYKQkFNTUIydDFhM1ZzWVcweEZEQVNCZ05WQkFvTUMydDFhM1ZzWVcwdVpHVjJNQjRYRFRJek1EUXdNekU1TWpZdwpOMW9YRFRJME1EUXdNakU1TWpZd04xb3dLREVRTUE0R0ExVUVBd3dIYTNWcmRXeGhiVEVVTUJJR0ExVUVDZ3dMCmEzVnJkV3hoYlM1a1pYWXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFEUDlOMjkKdnZEVHQ3UjZpekd0VURLN0l5cnd3Wm1DSFhuNXdybGU4blhCRnZCckhPMmxIeXlDVUFSck85ODZ3SW5XNG1YcwpVYlJ5VmU4TzJROUFyclJaY01DTDU1VkRFcEREUVRST3BveFl5WWxwMzBFdE9kS0R3MWN3WVFBR0dGSWpDVnJJCkloTWF4bVAxajdzMkZnZE5IeW02d0FERWNZekpQTEhKeFJ2OU5VZDYyYVRtNlVRZ2p6MmJCNUNXRzZpcFlkY08Kc01jd2FBT2hSOHBNQzFiMjNnY2F1VlkyWmZoYkxWTlRacHZmWmo5cTBJcElkczdFamZqelBFVEtjYnZuRXRxbwpmazZEbTdHTzdkdXNRTVpFWGNjSGZMVDFIc2JJZWRVOVZ6WFgwbDlRSXpJbzlZaGNsbGtNMGw1ODJPOXpDdlhUCmRhdzBGZ2dIUUpDaS9zQnpBZ01CQUFHamdad3dnWmt3SFFZRFZSME9CQllFRkhXS0RBQnlHa24rdlFUMHJKRzUKRXBTSjd4VURNQjhHQTFVZEl3UVlNQmFBRkhXS0RBQnlHa24rdlFUMHJKRzVFcFNKN3hVRE1BNEdBMVVkRHdFQgovd1FFQXdJQ3BEQWdCZ05WSFNVQkFmOEVGakFVQmdnckJnRUZCUWNEQVFZSUt3WUJCUVVIQXdJd0R3WURWUjBUCkFRSC9CQVV3QXdFQi96QVVCZ05WSFJFRURUQUxnZ2xzYjJOaGJHaHZjM1F3RFFZSktvWklodmNOQVFFTEJRQUQKZ2dFQkFCdTdKZWNXaFpBeDA2R0w2NU5TbExpY1NyOEllOE9tVTU2dUZOWThQV3ZHdDE3SGlydjQ3L25DZ3lMegpBVGVEVTVUSkdMU0IveGlPc2RVVTVpNEs4U3FURmZ1bmF5NnJYS2tyMldlMjl4UjZDTHorTHZFMjdiUDdlWjVYCnR3UGVvaXVPYUZ0cVFlalM0cUJFQUgzTHFTSDg2c0ZQMXNNNjlQOU1IcG9GT1pMbzRHWU1NRzhoYm13MHZITjYKdlNkdFo4RmRNKzM4UWtMOUpjanFnaDV6U1UyR1orRDIxVGpYNWJMcjJ1ZHh4SFJLaCtiM0lnVno2Q2JVQ1djKwpVRlFRbjU1c1lVVk42V3ZBK0Raa1ByNU1vOEtFbWQxT3dNRjh3Vi9xdXp2Y2h4YlNKcTQxOTNabWdHdTdvRkFXCkJtTmRxc2RsVlhRdzVjeUFUamI1Q2NHL29UTT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==
 ```
-### Encode `tls.key`
+## Encoded `tls.key`
 ```text
 LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRRFA5TjI5dnZEVHQ3UjYKaXpHdFVESzdJeXJ3d1ptQ0hYbjV3cmxlOG5YQkZ2QnJITzJsSHl5Q1VBUnJPOTg2d0luVzRtWHNVYlJ5VmU4TwoyUTlBcnJSWmNNQ0w1NVZERXBERFFUUk9wb3hZeVlscDMwRXRPZEtEdzFjd1lRQUdHRklqQ1ZySUloTWF4bVAxCmo3czJGZ2ROSHltNndBREVjWXpKUExISnhSdjlOVWQ2MmFUbTZVUWdqejJiQjVDV0c2aXBZZGNPc01jd2FBT2gKUjhwTUMxYjIzZ2NhdVZZMlpmaGJMVk5UWnB2ZlpqOXEwSXBJZHM3RWpmanpQRVRLY2J2bkV0cW9mazZEbTdHTwo3ZHVzUU1aRVhjY0hmTFQxSHNiSWVkVTlWelhYMGw5UUl6SW85WWhjbGxrTTBsNTgyTzl6Q3ZYVGRhdzBGZ2dIClFKQ2kvc0J6QWdNQkFBRUNnZ0VBR0tCbDFmK1RvMjdnMTVZK1JzajFpUVhNSXdDNlBoZGhoM3RRMm5hYURVaTcKSmVRaUhHakpxNUR3UlFhdEU5Y1RPN2hKMjZkOVdBRG5NM251L1hqeThKaVNwTDdEQlZOZ2cwN29jOXZ6U054dApBbldtMFVWRXNjZmpQbDV1VTBwMEI2UW05UVpiL3RLNXFhM2d2TEgxSVdQc1hDbzZyUWpKWkZka3NvRStKRWtCClRLVUlUcFEwenlNTEppUFRQQmcrcFgxWU9ad1YwcllDSGV4bklYMkZsQW0xSGl0aDQ4d0E1eTkyS2RJbVFBN0IKcUZwU0dUNFFuS1k5eG4wa1NYUEE2RUtHL1ZSZ3FLUkZ3ZzVSZ0ZCeVlSVG1VMUtkVFdsSUk3dmFnVFFuUGwzRwpqYnJpdFFTVlZ1MzIwZlVPaGN4cVNlK2l3YVdETDZnWjFKWFJSakFXZ1FLQmdRRG9xTmVRc2lNZlNvN0FhK2VOCjJFSmZBVHR6c1Jxd1hxZlFJVW5CZjZiZ25PRzdsT0pGU25QN1gxYkFZUGU5ejRsOHZpSVU2a04wZ1JvZllCRTYKQVcwQmFyUlJkWnZOY0hFTGdXaElPRmxyUngweWUvRm5XNVVtRjI2elhZMGFtYzYvZ0h5RlBxM29QS2NkellsQgp0WDV6WlY2eGRrdFpLMjBYcGhzSDVURVpRUUtCZ1FEazBabnlDOG9GKzdXSllmVGFlQkdhTjA2YlYrY04ycUVpCmN1RkU3elFhZC9XNXpCVWtpc1lQdndpelMrRVgra0cwalp3aS9CaTBoV1V3dXpjVzFwdHRWUm91anp0ZUN5KzMKR0cvOE1aSmNyK1Juenp0MUxuS1Y4QlF5Q1Ava0VzMTIvZER5eUJCMlNFUURKRDNaT3JTaGcyYURVdVhpbExUbAppYUdoU0V3WXN3S0JnUUNBSGlIK3F5bk9IR2Q1ckxIcEdWS0xNSW1GanR4TWpRTktDRnF1TkZZMzBBdzZHS1YxClZLZURvQitNZHBsV0s4ZmhLbTVvS0F5WFJsU1ZQSGlnQVpMK09iMHNNbUJtZyttc1ZVbVFvMzhTSlNuOTErUzYKYnVNMkE2ZFJIRTRNZlBBdDRsb3ZvYkZ3ZHAzc09uZS8rR3EycnZhek1Kb1RjMmR5bzJTMU4wK1BRUUtCZ0NPTQp4UVFyL0xrdFFDa1dCUHFrU09mU3krMnFuSVUwZ0hCZnRNd0c5ZXRlMDlpSDhvajQzb2kzdjF4TDM2N2YvTEZXCmh2bVFmUzRldzNmc3ZrUllGMUhITlFnaXpMQnh3SG9MMitvc3NYYWhCVFZ6cHVNdjBqR2xXUjNrOUF5MU55TFQKa0ZFSDhEYlFSM0ROZ3FaclRvRUJiejNiOVVkY256WkNTZEJLOFRldEFvR0FEeHZOSTlLeVoyTVBUM1BEclBBVAppNDBkY1ZjT3ByS291d3hjSEVhUHd3SFNrZ3ZFZWdwTFVsM0tMZ2pJM0NGMlJ3bUtzZjdwMmxxVHJoN2J5L3BQCkc5WWN3cE1oYUc5anVYQnRzb3gybUdtMEk3S3ZXWXhnL0YyRmVpRlAwOW1BandUUEZSZjdpMFhCTXFCQVdreEQKZkdkWlFzSnh3OEx5KzhBTkxaRzRsRVU9Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=
 ```
 
-## 2. Setup `ClusterIssuer` with `cert-manager` on kubernetes
+# 2. Setup `ClusterIssuer` with `cert-manager` on kubernetes
 
 {{< admonition note >}}
 You can use `Issuer` instead of `ClusterIssuer` if you want to 
@@ -175,7 +174,7 @@ isolate resource within single namespace. `ClusterIssuer` is visible globally
 on kubernetes cluster.
 {{< /admonition >}}
 
-### cluster-issuer-secrets.yml
+## cluster-issuer-secrets.yml
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -187,7 +186,7 @@ data:
   tls.key: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRRFA5TjI5dnZEVHQ3UjYKaXpHdFVESzdJeXJ3d1ptQ0hYbjV3cmxlOG5YQkZ2QnJITzJsSHl5Q1VBUnJPOTg2d0luVzRtWHNVYlJ5VmU4TwoyUTlBcnJSWmNNQ0w1NVZERXBERFFUUk9wb3hZeVlscDMwRXRPZEtEdzFjd1lRQUdHRklqQ1ZySUloTWF4bVAxCmo3czJGZ2ROSHltNndBREVjWXpKUExISnhSdjlOVWQ2MmFUbTZVUWdqejJiQjVDV0c2aXBZZGNPc01jd2FBT2gKUjhwTUMxYjIzZ2NhdVZZMlpmaGJMVk5UWnB2ZlpqOXEwSXBJZHM3RWpmanpQRVRLY2J2bkV0cW9mazZEbTdHTwo3ZHVzUU1aRVhjY0hmTFQxSHNiSWVkVTlWelhYMGw5UUl6SW85WWhjbGxrTTBsNTgyTzl6Q3ZYVGRhdzBGZ2dIClFKQ2kvc0J6QWdNQkFBRUNnZ0VBR0tCbDFmK1RvMjdnMTVZK1JzajFpUVhNSXdDNlBoZGhoM3RRMm5hYURVaTcKSmVRaUhHakpxNUR3UlFhdEU5Y1RPN2hKMjZkOVdBRG5NM251L1hqeThKaVNwTDdEQlZOZ2cwN29jOXZ6U054dApBbldtMFVWRXNjZmpQbDV1VTBwMEI2UW05UVpiL3RLNXFhM2d2TEgxSVdQc1hDbzZyUWpKWkZka3NvRStKRWtCClRLVUlUcFEwenlNTEppUFRQQmcrcFgxWU9ad1YwcllDSGV4bklYMkZsQW0xSGl0aDQ4d0E1eTkyS2RJbVFBN0IKcUZwU0dUNFFuS1k5eG4wa1NYUEE2RUtHL1ZSZ3FLUkZ3ZzVSZ0ZCeVlSVG1VMUtkVFdsSUk3dmFnVFFuUGwzRwpqYnJpdFFTVlZ1MzIwZlVPaGN4cVNlK2l3YVdETDZnWjFKWFJSakFXZ1FLQmdRRG9xTmVRc2lNZlNvN0FhK2VOCjJFSmZBVHR6c1Jxd1hxZlFJVW5CZjZiZ25PRzdsT0pGU25QN1gxYkFZUGU5ejRsOHZpSVU2a04wZ1JvZllCRTYKQVcwQmFyUlJkWnZOY0hFTGdXaElPRmxyUngweWUvRm5XNVVtRjI2elhZMGFtYzYvZ0h5RlBxM29QS2NkellsQgp0WDV6WlY2eGRrdFpLMjBYcGhzSDVURVpRUUtCZ1FEazBabnlDOG9GKzdXSllmVGFlQkdhTjA2YlYrY04ycUVpCmN1RkU3elFhZC9XNXpCVWtpc1lQdndpelMrRVgra0cwalp3aS9CaTBoV1V3dXpjVzFwdHRWUm91anp0ZUN5KzMKR0cvOE1aSmNyK1Juenp0MUxuS1Y4QlF5Q1Ava0VzMTIvZER5eUJCMlNFUURKRDNaT3JTaGcyYURVdVhpbExUbAppYUdoU0V3WXN3S0JnUUNBSGlIK3F5bk9IR2Q1ckxIcEdWS0xNSW1GanR4TWpRTktDRnF1TkZZMzBBdzZHS1YxClZLZURvQitNZHBsV0s4ZmhLbTVvS0F5WFJsU1ZQSGlnQVpMK09iMHNNbUJtZyttc1ZVbVFvMzhTSlNuOTErUzYKYnVNMkE2ZFJIRTRNZlBBdDRsb3ZvYkZ3ZHAzc09uZS8rR3EycnZhek1Kb1RjMmR5bzJTMU4wK1BRUUtCZ0NPTQp4UVFyL0xrdFFDa1dCUHFrU09mU3krMnFuSVUwZ0hCZnRNd0c5ZXRlMDlpSDhvajQzb2kzdjF4TDM2N2YvTEZXCmh2bVFmUzRldzNmc3ZrUllGMUhITlFnaXpMQnh3SG9MMitvc3NYYWhCVFZ6cHVNdjBqR2xXUjNrOUF5MU55TFQKa0ZFSDhEYlFSM0ROZ3FaclRvRUJiejNiOVVkY256WkNTZEJLOFRldEFvR0FEeHZOSTlLeVoyTVBUM1BEclBBVAppNDBkY1ZjT3ByS291d3hjSEVhUHd3SFNrZ3ZFZWdwTFVsM0tMZ2pJM0NGMlJ3bUtzZjdwMmxxVHJoN2J5L3BQCkc5WWN3cE1oYUc5anVYQnRzb3gybUdtMEk3S3ZXWXhnL0YyRmVpRlAwOW1BandUUEZSZjdpMFhCTXFCQVdreEQKZkdkWlFzSnh3OEx5KzhBTkxaRzRsRVU9Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=
 ```
 
-### cluster-issuer.yml
+## cluster-issuer.yml
 ```yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -199,13 +198,13 @@ spec:
     secretName: ca-issuer-certs
 ```
 
-### Apply manifests
+## Apply manifests
 ```bash
 kubectl apply -f cluster-issuer-secrets.yml
 kubectl apply -f cluster-issuer.yml
 ```
 
-#### Result
+### Result
 ```bash
 » kubectl apply -f cluster-issuer-secrets.yml
 secret/ca-issuer-certs created
@@ -220,8 +219,8 @@ NAME        READY   AGE
 ca-issuer   True    57s
 ```
 
-## 3. Setup certificate on kubernetes
-### certificate.yml
+# 3. Setup certificate on kubernetes
+## certificate.yml
 ```yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -251,12 +250,12 @@ spec:
     kind: ClusterIssuer
     group: cert-manager.io
 ```
-### Apply manifest
+## Apply manifest
 ```bash
 kubectl apply -f certificate.yml
 ```
 
-#### Result
+### Result
 ```bash
 » kubectl apply -f certificate.yml
 certificate.cert-manager.io/example-certificate created
@@ -365,7 +364,7 @@ NAME         TYPE                DATA   AGE
 mtls-certs   kubernetes.io/tls   3      4d19h
 
 ```
-## 4. Generated certificate is stored in kubernetes secrets
+# 4. Generated certificate is stored in kubernetes secrets
 ```bash
 » kubectl describe secret mtls-certs -n mtls
 Name:         mtls-certs
@@ -389,10 +388,10 @@ tls.crt:  1159 bytes
 tls.key:  1675 bytes
 ```
 
-## Github project
+# Github project
 All files which I used to generate certificate are stored in [github repository](https://github.com/kukulam/blog-code-materials/tree/main/mutual-tls-with-self-signed-certificates-on-kubernetes).
 
-## References
+# References
 - [How to generate self signed certificate](https://cert-manager.io/docs/configuration/selfsigned/)
 - [How to generate CA](https://cert-manager.io/docs/configuration/ca/)
 - [ClusterIssuer vs Issuer](https://cert-manager.io/docs/concepts/issuer/)
