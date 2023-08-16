@@ -33,9 +33,11 @@ I am interested in a remote role as a backend platform engineer specializing in 
 
 I am not considering job offers about: big data or frontend. 
 
-### Curriculum vitae
+[//]: # ()
+[//]: # (### Curriculum vitae)
 
-[cv.pdf](https://drive.google.com/file/d/11D0qbSJpGUzCl8RXBxlEIFwKIBovETZy/view)
+[//]: # ()
+[//]: # ([cv.pdf]&#40;https://drive.google.com/file/d/11D0qbSJpGUzCl8RXBxlEIFwKIBovETZy/view&#41;)
 
 ## Certificates
 
