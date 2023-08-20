@@ -55,7 +55,7 @@ This version presents users with two different modes: Sentinel and Cluster.
 
 ## Redis Sentinel
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-sentinel.drawio.svg)
+![image](./redis-sentinel.drawio.png)
 {{< /style >}}
 
 ### Overview 
@@ -76,7 +76,7 @@ In this mode, Redis functions in a master-slave configuration, enabling robust a
 
 ## Redis Cluster
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-cluster.drawio.svg)
+![image](./redis-cluster.drawio.png)
 {{< /style >}}
 
 ### Overview
@@ -105,7 +105,7 @@ When we are using multiple clouds we need to be worried about split brain betwee
 Split brain is a situation when one cloud can lose connection to another cloud and both clouds lives independent at the same time.
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-splitbrain.drawio.svg)
+![image](./redis-splitbrain.drawio.png)
 {{< /style >}}
 
 ## Quorum Consensus
@@ -135,7 +135,7 @@ Notably, all data is routed through the master before being disseminated to the 
 - GCP: 2 nodes
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-sentinel-config-1.drawio.svg)
+![image](./redis-sentinel-config-1.drawio.png)
 {{< /style >}}
 
 #### Problems
@@ -153,7 +153,7 @@ Resilient to cloud outage: ❌
 - GCP: 3 nodes
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-sentinel-config-2.drawio.svg)
+![image](./redis-sentinel-config-2.drawio.png)
 {{< /style >}}
 
 #### Problems
@@ -172,7 +172,7 @@ Resilient to cloud outage: ❌
 - Azure: 2 nodes
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-sentinel-config-3.drawio.svg)
+![image](./redis-sentinel-config-3.drawio.png)
 {{< /style >}}
 
 #### Problems
@@ -192,7 +192,7 @@ Resilient to cloud outage: ✅
 - Azure: 3 nodes
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-sentinel-config-4.drawio.svg)
+![image](./redis-sentinel-config-4.drawio.png)
 {{< /style >}}
 
 #### Problems
@@ -223,7 +223,7 @@ In the case of failover, it's noteworthy that **only the master nodes hold the p
 - 3 shards: A, B, C
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-cluster-config-1.drawio.svg)
+![image](./redis-cluster-config-1.drawio.png)
 {{< /style >}}
 
 #### Problems
@@ -250,7 +250,7 @@ Resilient to cloud outage: ❌
 - 5 shards: A, B, C, D, E
 
 {{< style "justify-content: center; display: flex;" >}}
-![image](./redis-cluster-config-2.drawio.svg)
+![image](./redis-cluster-config-2.drawio.png)
 {{< /style >}}
 
 #### Problems
