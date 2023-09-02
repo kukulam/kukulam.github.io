@@ -49,7 +49,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "example_bucket_lifecycle" {
   }
 }
 ```
-In this example, objects in the "example-bucket-name" S3 bucket will be deleted automatically after 30 days.
+In this example, objects in the "kukulam-example-bucket-name" S3 bucket will be deleted automatically after 30 days.
 
 {{< admonition example "Terraform plan" false >}}
 ![image](./simple-bucket-tf-plan.png)
