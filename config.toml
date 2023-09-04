@@ -79,6 +79,7 @@ theme = 'loveit'
 [params.social]
   GitHub = "kukulam"
   Linkedin = "kukulam"
+  Instagram = "kukulam.dev"
   Email = "kukula.milosz@gmail.com"
   RSS = false
 
@@ -110,6 +111,20 @@ theme = 'loveit'
   [markup.tableOfContents]
     startLevel = 1
     endLevel = 6
+
+[params.analytics]
+  enable = true
+
+[params.analytics.google]
+  id = "G-DQBYFEBSP1"
+  anonymizeIP = true
+
+[params.page.comment]
+  enable = true
+
+[params.page.comment.disqus]
+  enable = true
+  shortname = "test"
 
 
 
