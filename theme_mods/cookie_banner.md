@@ -1,0 +1,5 @@
+```html
+<!-- Start cookieyes banner -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/806451328eca53aeb54fc166/script.js"></script>
+<!-- End cookieyes banner -->
+```
