@@ -124,7 +124,7 @@ theme = 'loveit'
 
 [params.page.comment.disqus]
   enable = true
-  shortname = "kukulam-dev-1"
+  shortname = "kukulam-dev"
 
 
 
