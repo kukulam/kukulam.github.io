@@ -19,7 +19,7 @@ As an experienced developer, I specialize in distributed systems, particularly d
 #### Present time
 Currently, as a platform engineer, I am drawn to the challenges of distributed systems. My expertise includes ensuring data consistency, maintaining high availability and implementing disaster recovery measures. I am fully committed to specializing in this field and excited to continue pushing its boundaries.
 
-## Need help ?
+## Need help?
 I am available to offer my expertise in resolving any issues related to Kubernetes and databases, or other technologies featured in my posts. Should you require consultation or assistance with your project, please do not hesitate to contact me. If you are interested in training, see [Trainings](/trainings) tab.
 
 ## For recruiters
