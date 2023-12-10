@@ -1,6 +1,6 @@
 ---
 title: "Setup TTL for GCS bucket with Terraform"
-date: 2023-09-17T11:10:29+02:00
+date: 2023-12-10T11:10:29+02:00
 draft: false
 tags: ["cloud"]
 
