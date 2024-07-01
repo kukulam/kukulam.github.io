@@ -43,8 +43,8 @@ I am not considering job offers about: big data or frontend.
 
 {{< style "img { height: 10rem; }" >}}
 [![CKA](https://images.credly.com/size/680x680/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka_from_cncfsite__281_29.png)](https://www.credly.com/badges/61ae0ebd-2240-4527-be28-e02d872cb84e/linked_in_profile)
-[![CKS](https://training.linuxfoundation.org/wp-content/uploads/2020/07/kubernetes-security-specialist-logo-300x285.png)](https://www.credly.com/badges/30acf103-af3d-40a6-9d9d-2745c88b5685/linked_in_profile)
 [![CKAD](https://images.credly.com/size/680x680/images/f88d800c-5261-45c6-9515-0458e31c3e16/ckad_from_cncfsite.png)](https://www.credly.com/badges/2296aa07-0a92-4f02-9b1c-1b169e5a9e3b/linked_in_profile)
+[![CKS](https://training.linuxfoundation.org/wp-content/uploads/2020/07/kubernetes-security-specialist-logo-300x285.png)](https://www.credly.com/badges/30acf103-af3d-40a6-9d9d-2745c88b5685/linked_in_profile)
 [![AWS SysOps](https://images.credly.com/size/680x680/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png)](https://www.credly.com/badges/43b580a1-eb21-4d98-b177-4cafa09e71df/linked_in_profile)
 [![Terraform](https://images.credly.com/size/680x680/images/99289602-861e-4929-8277-773e63a2fa6f/image.png)](https://www.credly.com/badges/8f0f4a77-9274-4caa-89f5-675cb7feecc5?source=linked_in_profile)
 {{< /style >}}
