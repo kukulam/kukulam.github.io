@@ -25,14 +25,14 @@ theme = 'loveit'
     name = "About"
     url = "/about"
     title = ""
-  [[menu.main]]
-    weight = 3
-    identifier = "trainings"
-    pre = ""
-    post = ""
-    name = "Trainings"
-    url = "/trainings"
-    title = "Trainings"
+#   [[menu.main]]
+#     weight = 3
+#     identifier = "trainings"
+#     pre = ""
+#     post = ""
+#     name = "Trainings"
+#     url = "/trainings"
+#     title = "Trainings"
 #   [[menu.main]]
 #     weight = 4
 #     identifier = "categories"

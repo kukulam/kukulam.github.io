@@ -22,6 +22,8 @@ Currently, as a platform engineer, I am drawn to the challenges of distributed s
 ## Need help?
 I can provide training and organize workshops to help you and your team deepen your understanding of Kubernetes, databases, and other technologies featured in my posts. I am also available to offer my expertise in resolving any issues related to these technologies. Should you require consultation or assistance with your project, please do not hesitate to contact me.
 
+[//]: # (If you are interested in training, see [Trainings]&#40;/trainings&#41; tab.)
+
 ## For recruiters
 I am interested in a remote role as a backend platform engineer specializing in distributed systems. __Kindly consider my interest in this regard__.
 
