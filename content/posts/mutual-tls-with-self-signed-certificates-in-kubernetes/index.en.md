@@ -1,5 +1,5 @@
 ---
-title: "Mutual TLS with self-signed certificates on kubernetes"
+title: "Mutual TLS with self-signed certificates in kubernetes"
 date: 2023-04-03T19:09:19+02:00
 draft: false
 tags: ["kubernetes", "security"]
@@ -166,12 +166,12 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURjRENDQWxpZ0F3SUJBZ0lKQUoyOVVLeG1pV1lz
 LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRRFA5TjI5dnZEVHQ3UjYKaXpHdFVESzdJeXJ3d1ptQ0hYbjV3cmxlOG5YQkZ2QnJITzJsSHl5Q1VBUnJPOTg2d0luVzRtWHNVYlJ5VmU4TwoyUTlBcnJSWmNNQ0w1NVZERXBERFFUUk9wb3hZeVlscDMwRXRPZEtEdzFjd1lRQUdHRklqQ1ZySUloTWF4bVAxCmo3czJGZ2ROSHltNndBREVjWXpKUExISnhSdjlOVWQ2MmFUbTZVUWdqejJiQjVDV0c2aXBZZGNPc01jd2FBT2gKUjhwTUMxYjIzZ2NhdVZZMlpmaGJMVk5UWnB2ZlpqOXEwSXBJZHM3RWpmanpQRVRLY2J2bkV0cW9mazZEbTdHTwo3ZHVzUU1aRVhjY0hmTFQxSHNiSWVkVTlWelhYMGw5UUl6SW85WWhjbGxrTTBsNTgyTzl6Q3ZYVGRhdzBGZ2dIClFKQ2kvc0J6QWdNQkFBRUNnZ0VBR0tCbDFmK1RvMjdnMTVZK1JzajFpUVhNSXdDNlBoZGhoM3RRMm5hYURVaTcKSmVRaUhHakpxNUR3UlFhdEU5Y1RPN2hKMjZkOVdBRG5NM251L1hqeThKaVNwTDdEQlZOZ2cwN29jOXZ6U054dApBbldtMFVWRXNjZmpQbDV1VTBwMEI2UW05UVpiL3RLNXFhM2d2TEgxSVdQc1hDbzZyUWpKWkZka3NvRStKRWtCClRLVUlUcFEwenlNTEppUFRQQmcrcFgxWU9ad1YwcllDSGV4bklYMkZsQW0xSGl0aDQ4d0E1eTkyS2RJbVFBN0IKcUZwU0dUNFFuS1k5eG4wa1NYUEE2RUtHL1ZSZ3FLUkZ3ZzVSZ0ZCeVlSVG1VMUtkVFdsSUk3dmFnVFFuUGwzRwpqYnJpdFFTVlZ1MzIwZlVPaGN4cVNlK2l3YVdETDZnWjFKWFJSakFXZ1FLQmdRRG9xTmVRc2lNZlNvN0FhK2VOCjJFSmZBVHR6c1Jxd1hxZlFJVW5CZjZiZ25PRzdsT0pGU25QN1gxYkFZUGU5ejRsOHZpSVU2a04wZ1JvZllCRTYKQVcwQmFyUlJkWnZOY0hFTGdXaElPRmxyUngweWUvRm5XNVVtRjI2elhZMGFtYzYvZ0h5RlBxM29QS2NkellsQgp0WDV6WlY2eGRrdFpLMjBYcGhzSDVURVpRUUtCZ1FEazBabnlDOG9GKzdXSllmVGFlQkdhTjA2YlYrY04ycUVpCmN1RkU3elFhZC9XNXpCVWtpc1lQdndpelMrRVgra0cwalp3aS9CaTBoV1V3dXpjVzFwdHRWUm91anp0ZUN5KzMKR0cvOE1aSmNyK1Juenp0MUxuS1Y4QlF5Q1Ava0VzMTIvZER5eUJCMlNFUURKRDNaT3JTaGcyYURVdVhpbExUbAppYUdoU0V3WXN3S0JnUUNBSGlIK3F5bk9IR2Q1ckxIcEdWS0xNSW1GanR4TWpRTktDRnF1TkZZMzBBdzZHS1YxClZLZURvQitNZHBsV0s4ZmhLbTVvS0F5WFJsU1ZQSGlnQVpMK09iMHNNbUJtZyttc1ZVbVFvMzhTSlNuOTErUzYKYnVNMkE2ZFJIRTRNZlBBdDRsb3ZvYkZ3ZHAzc09uZS8rR3EycnZhek1Kb1RjMmR5bzJTMU4wK1BRUUtCZ0NPTQp4UVFyL0xrdFFDa1dCUHFrU09mU3krMnFuSVUwZ0hCZnRNd0c5ZXRlMDlpSDhvajQzb2kzdjF4TDM2N2YvTEZXCmh2bVFmUzRldzNmc3ZrUllGMUhITlFnaXpMQnh3SG9MMitvc3NYYWhCVFZ6cHVNdjBqR2xXUjNrOUF5MU55TFQKa0ZFSDhEYlFSM0ROZ3FaclRvRUJiejNiOVVkY256WkNTZEJLOFRldEFvR0FEeHZOSTlLeVoyTVBUM1BEclBBVAppNDBkY1ZjT3ByS291d3hjSEVhUHd3SFNrZ3ZFZWdwTFVsM0tMZ2pJM0NGMlJ3bUtzZjdwMmxxVHJoN2J5L3BQCkc5WWN3cE1oYUc5anVYQnRzb3gybUdtMEk3S3ZXWXhnL0YyRmVpRlAwOW1BandUUEZSZjdpMFhCTXFCQVdreEQKZkdkWlFzSnh3OEx5KzhBTkxaRzRsRVU9Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=
 ```
 
-# 2. Setup `ClusterIssuer` with `cert-manager` on kubernetes
+# 2. Setup `ClusterIssuer` with `cert-manager` in kubernetes
 
 {{< admonition note >}}
 You can use `Issuer` instead of `ClusterIssuer` if you want to 
 isolate resource within single namespace. `ClusterIssuer` is visible globally
-on kubernetes cluster.
+in kubernetes cluster.
 {{< /admonition >}}
 
 ## cluster-issuer-secrets.yml
@@ -219,7 +219,7 @@ NAME        READY   AGE
 ca-issuer   True    57s
 ```
 
-# 3. Setup certificate on kubernetes
+# 3. Setup certificate in kubernetes
 ## certificate.yml
 ```yaml
 apiVersion: cert-manager.io/v1
@@ -388,8 +388,8 @@ tls.crt:  1159 bytes
 tls.key:  1675 bytes
 ```
 
-# Github project
-All files which I used to generate certificate are stored in [github repository](https://github.com/kukulam/blog-code-materials/tree/main/mutual-tls-with-self-signed-certificates-on-kubernetes).
+# GitHub project
+All files which I used to generate certificate are stored in [github repository](https://github.com/kukulam/blog-code-materials/tree/main/mutual-tls-with-self-signed-certificates-in-kubernetes).
 
 # References
 - [How to generate self signed certificate](https://cert-manager.io/docs/configuration/selfsigned/)

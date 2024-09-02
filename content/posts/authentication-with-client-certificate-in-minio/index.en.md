@@ -188,7 +188,7 @@ upload failed: ./test3.txt to s3://bucket1/test3.txt An error occurred (AccessDe
 `minio/mc` does not support `AssumeRoleWithCertificate` mechanism by using `mc config host add`.
 {{< /admonition >}}
 
-# Github project
+# GitHub project
 All files which I used to test `AssumeRoleWithCertificate` mechanism are stored in [github repository](https://github.com/kukulam/blog-code-materials/tree/main/authentication-with-client-certificate-in-minio).
 
 # References
