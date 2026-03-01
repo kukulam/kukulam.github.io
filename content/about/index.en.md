@@ -49,7 +49,8 @@ I am not considering job offers about: big data or frontend.
 [![CKS](https://training.linuxfoundation.org/wp-content/uploads/2020/07/kubernetes-security-specialist-logo-300x285.png)](https://www.credly.com/badges/30acf103-af3d-40a6-9d9d-2745c88b5685/linked_in_profile)
 [![AWS Architect](https://images.credly.com/size/680x680/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png)](https://www.credly.com/badges/aeafbce7-412d-426f-817f-429dff90789f/linked_in_profile)
 [![AWS SysOps](https://images.credly.com/size/680x680/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png)](https://www.credly.com/badges/43b580a1-eb21-4d98-b177-4cafa09e71df/linked_in_profile)
-[![Terraform](https://images.credly.com/size/680x680/images/cd038261-9d1c-4792-bc62-3a3b5bda175c/blob)](https://www.credly.com/badges/8f0f4a77-9274-4caa-89f5-675cb7feecc5/linked_in_profile) https://images.credly.com/size/680x680/images/cd038261-9d1c-4792-bc62-3a3b5bda175c/blob
+[![Terraform](https://images.credly.com/size/680x680/images/cd038261-9d1c-4792-bc62-3a3b5bda175c/blob)](https://www.credly.com/badges/8f0f4a77-9274-4caa-89f5-675cb7feecc5/linked_in_profile) 
+
 {{< /style >}}
 
 ## Contact
